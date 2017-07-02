@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: display hostname
+      shell: hostname
+      register: result
+    - name: show debug info
+      debug: var=result.stdout
