@@ -51,3 +51,4 @@ build-iPhoneSimulator/
 
 # not included
 .vagrant/
+*.retry

@@ -1,0 +1,20 @@
+---
+- hosts: all
+  sudo: yes
+  vars:
+    ip: "192.168.122.30/24"
+    name: test
+    password: test
+  tasks:
+    - name: Install Pre
+      package:
+        name: python
+        state: latest
+
+    - name: Create a started container
+      lxc_container:
+        name: "{{ name }}"
+        container_log: true
+        template: ubuntu
+        state: started
+        template_options: --release trusty
