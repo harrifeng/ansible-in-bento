@@ -6,11 +6,21 @@
     name: test
     password: test
   tasks:
-    - name: Install Pre
+    - name: Install pip
       package:
-        name: python
+        name: python-pip
         state: latest
-
+    - name: Install lxc
+      package:
+        name: lxc
+        state: latest
+    - name: Install lxc-dev
+      package:
+        name: lxc-dev
+        state: latest
+    - name: Install lxc-python2
+      pip:
+        name: lxc-python2
     - name: Create a started container
       lxc_container:
         name: "{{ name }}"
